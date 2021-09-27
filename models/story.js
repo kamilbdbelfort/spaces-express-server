@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   story.init(
     {
-      name: DataTypes.STRING,
+      name: { type: DataTypes.STRING },
       content: DataTypes.TEXT,
       imageUrl: DataTypes.STRING,
     },
