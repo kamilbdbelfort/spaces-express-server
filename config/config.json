@@ -1,11 +1,6 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "secret",
-    "database": "postgres://adbzhudj:Mu9MhmNxHkSwFlEURU55uGGJZUN5puY1@hattie.db.elephantsql.com/adbzhudj",
-    "host": "localhost",
-    "dialect": "postgres",
-    "operatorsAliases": "0"
+    "url": "postgres://adbzhudj:Mu9MhmNxHkSwFlEURU55uGGJZUN5puY1@hattie.db.elephantsql.com/adbzhudj"
   },
   "test": {
     "username": "root",
