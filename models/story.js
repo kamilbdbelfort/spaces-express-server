@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      story.belangsTo(models.space);
+      story.belongsTo(models.space);
     }
   }
   story.init(

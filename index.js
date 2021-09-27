@@ -4,6 +4,9 @@ const corsMiddleWare = require("cors");
 const { PORT } = require("./config/constants");
 const authRouter = require("./routers/auth");
 const authMiddleWare = require("./auth/middleware");
+const User = require("./models").user;
+const Space = require("./models").space;
+const Story = require("./models").story;
 
 const app = express();
 
@@ -120,8 +123,37 @@ if (process.env.DELAY) {
  */
 
 // GET endpoint for testing purposes, can be removed
-app.get("/", (req, res) => {
-  res.send("Hi from express");
+app.get("/:userId", async (req, res, next) => {
+  try {
+    // findAll users test route /:
+    // const users = await User.findAll();
+
+    // findByPk space include the stories, set route to: /:spaceId
+    // const spaceId = parseInt(req.params.spaceId);
+    // console.log("spaceId", spaceId);
+    // const space = await Space.findByPk(spaceId, {
+    //   include: [Story],
+    // });
+    // console.log("space story", space.stories);
+    // if (space) {
+    //   res.send(space.stories);
+    // } else {
+    //   res.status(404).send("Space with given id, doesn't exists.");
+    // }
+
+    // findByPk user include spaces, set route to /:userId
+    const userId = parseInt(req.params.userId);
+    const user = await User.findByPk(userId, {
+      include: [Space],
+    });
+    if (user) {
+      res.send(user.spaces);
+    } else {
+      res.status(404).send("User not found... Try different ID");
+    }
+  } catch (e) {
+    next(e.message);
+  }
 });
 
 // POST endpoint for testing purposes, can be removed
