@@ -29,6 +29,14 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
         },
+        {
+          name: "test story continues",
+          content: "for testing purposes 2",
+          imageUrl: "",
+          spaceId: 1,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
       ],
       {}
     );
